@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>auto_test_request</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="outline"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="detail"
+		}
+	}
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "detail"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "outline"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1>auto_test_request</h1>
+<p class='attribute'><strong>Tester : </strong> homoo</p>
+<p class='attribute'><strong>Start Time : </strong> 2020-03-03 22:28:22</p>
+<p class='attribute'><strong>Duration : </strong> 0:00:04.962284</p>
+<p class='attribute'><strong>Status : </strong> ALL 15 Pass 12 Failure 3, Passing rate: 80.00%</p>
+
+<p class='description'>this is the first html report</p>
+</div>
+
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>Summary{ 80.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>Failed{ 3 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>Passed{ 12 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>ALL{ 15 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>test_case.test_http.TestHttp</td>
+    <td class="text-center">15</td>
+    <td class="text-center">12</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',15)" class="detail" id='c1'>Detail</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_01</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>pass</button>
+    <div id='div_pt1_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>pass</button>
+    <div id='div_pt1_1' class="collapse in">
+    <pre>
+    
+pt1_1: 2020-03-03 22:28:22,640-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:22,642-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:1,标题:正常登录*/
+2020-03-03 22:28:22,860-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:1,标题:正常登录*/
+2020-03-03 22:28:23,075-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_02</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>pass</button>
+    <div id='div_pt1_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>pass</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre>
+    
+pt1_2: 2020-03-03 22:28:23,077-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:23,079-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:2,标题:用户名为空登录*/
+2020-03-03 22:28:23,253-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:2,标题:用户名为空登录*/
+2020-03-03 22:28:23,480-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_03</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>pass</button>
+    <div id='div_pt1_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>pass</button>
+    <div id='div_pt1_3' class="collapse in">
+    <pre>
+    
+pt1_3: 2020-03-03 22:28:23,482-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:23,484-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:3,标题:密码为空登录*/
+2020-03-03 22:28:23,667-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:3,标题:密码为空登录*/
+2020-03-03 22:28:23,894-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_04</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>pass</button>
+    <div id='div_pt1_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>pass</button>
+    <div id='div_pt1_4' class="collapse in">
+    <pre>
+    
+pt1_4: 2020-03-03 22:28:23,896-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:23,898-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:4,标题:密码错误登录*/
+2020-03-03 22:28:24,102-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:4,标题:密码错误登录*/
+2020-03-03 22:28:24,328-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_05</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>pass</button>
+    <div id='div_pt1_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>pass</button>
+    <div id='div_pt1_5' class="collapse in">
+    <pre>
+    
+pt1_5: 2020-03-03 22:28:24,330-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:24,332-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:5,标题:用户名不存在登录*/
+2020-03-03 22:28:24,519-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:5,标题:用户名不存在登录*/
+2020-03-03 22:28:24,745-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_06</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_6'>pass</button>
+    <div id='div_pt1_6' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_6'>pass</button>
+    <div id='div_pt1_6' class="collapse in">
+    <pre>
+    
+pt1_6: 2020-03-03 22:28:24,747-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:24,749-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:1,标题:正常登录*/
+2020-03-03 22:28:24,949-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:1,标题:正常登录*/
+2020-03-03 22:28:25,179-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_7' class='none'>
+    <td class='failCase'><div class='testcase'>test_http_07</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_7'>fail</button>
+    <div id='div_ft1_7' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_7'>fail</button>
+    <div id='div_ft1_7' class="collapse in">
+    <pre>
+    
+ft1_7: 2020-03-03 22:28:25,182-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:25,184-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:2,标题:正常创建*/
+2020-03-03 22:28:25,199-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:2,标题:正常创建*/
+1 != 0
+2020-03-03 22:28:25,435-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+Traceback (most recent call last):
+  File "D:\Sqing\program_files\Python\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Sqing\program_files\PyCharm Community Edition 2018.1.3\auto_teach\test_case\test_http.py", line 59, in test_http
+    raise e
+  File "D:\Sqing\program_files\PyCharm Community Edition 2018.1.3\auto_teach\test_case\test_http.py", line 54, in test_http
+    self.assertEqual(r.json()['retcode'], test_data['exp'])
+AssertionError: 1 != 0
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_08</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_8' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_8'>pass</button>
+    <div id='div_pt1_8' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_8' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_8'>pass</button>
+    <div id='div_pt1_8' class="collapse in">
+    <pre>
+    
+pt1_8: 2020-03-03 22:28:25,439-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:25,441-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:3,标题:重复创建*/
+2020-03-03 22:28:25,454-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:3,标题:重复创建*/
+2020-03-03 22:28:25,717-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_09</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_9' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_9'>pass</button>
+    <div id='div_pt1_9' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_9' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_9'>pass</button>
+    <div id='div_pt1_9' class="collapse in">
+    <pre>
+    
+pt1_9: 2020-03-03 22:28:25,719-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:25,721-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:4,标题:data为空创建*/
+2020-03-03 22:28:25,735-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:4,标题:data为空创建*/
+2020-03-03 22:28:25,947-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_10</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_10' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_10'>pass</button>
+    <div id='div_pt1_10' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_10' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_10'>pass</button>
+    <div id='div_pt1_10' class="collapse in">
+    <pre>
+    
+pt1_10: 2020-03-03 22:28:25,949-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:25,950-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:5,标题:action为空创建*/
+2020-03-03 22:28:25,961-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:5,标题:action为空创建*/
+2020-03-03 22:28:26,180-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_11</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_11' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_11'>pass</button>
+    <div id='div_pt1_11' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_11' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_11'>pass</button>
+    <div id='div_pt1_11' class="collapse in">
+    <pre>
+    
+pt1_11: 2020-03-03 22:28:26,182-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:26,184-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:1,标题:正常登录*/
+2020-03-03 22:28:26,375-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:1,标题:正常登录*/
+2020-03-03 22:28:26,620-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_12</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_12' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_12'>pass</button>
+    <div id='div_pt1_12' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_12' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_12'>pass</button>
+    <div id='div_pt1_12' class="collapse in">
+    <pre>
+    
+pt1_12: 2020-03-03 22:28:26,622-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:26,624-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:2,标题:正常创建*/
+2020-03-03 22:28:26,643-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:2,标题:正常创建*/
+2020-03-03 22:28:26,863-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_http_13</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_13' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_13'>pass</button>
+    <div id='div_pt1_13' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_13' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_13'>pass</button>
+    <div id='div_pt1_13' class="collapse in">
+    <pre>
+    
+pt1_13: 2020-03-03 22:28:26,865-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:26,867-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:3,标题:重复创建*/
+2020-03-03 22:28:26,887-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:3,标题:重复创建*/
+2020-03-03 22:28:27,102-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_14' class='none'>
+    <td class='failCase'><div class='testcase'>test_http_14</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_14' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_14'>fail</button>
+    <div id='div_ft1_14' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_14' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_14'>fail</button>
+    <div id='div_ft1_14' class="collapse in">
+    <pre>
+    
+ft1_14: 2020-03-03 22:28:27,104-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:27,106-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:4,标题:data的name为空创建*/
+2020-03-03 22:28:27,116-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:4,标题:data的name为空创建*/
+2 != 1
+2020-03-03 22:28:27,348-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+Traceback (most recent call last):
+  File "D:\Sqing\program_files\Python\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Sqing\program_files\PyCharm Community Edition 2018.1.3\auto_teach\test_case\test_http.py", line 59, in test_http
+    raise e
+  File "D:\Sqing\program_files\PyCharm Community Edition 2018.1.3\auto_teach\test_case\test_http.py", line 54, in test_http
+    self.assertEqual(r.json()['retcode'], test_data['exp'])
+AssertionError: 2 != 1
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_15' class='none'>
+    <td class='failCase'><div class='testcase'>test_http_15</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_15' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_15'>fail</button>
+    <div id='div_ft1_15' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_15' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_15'>fail</button>
+    <div id='div_ft1_15' class="collapse in">
+    <pre>
+    
+ft1_15: 2020-03-03 22:28:27,351-INFO-user_log.py-homoo-日志信息:==========开始测试==========
+2020-03-03 22:28:27,353-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:5,标题:action为空创建*/
+2020-03-03 22:28:27,370-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:5,标题:action为空创建*/
+0 != 1
+2020-03-03 22:28:27,599-INFO-user_log.py-homoo-日志信息:==========测试结束==========
+Traceback (most recent call last):
+  File "D:\Sqing\program_files\Python\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Sqing\program_files\PyCharm Community Edition 2018.1.3\auto_teach\test_case\test_http.py", line 59, in test_http
+    raise e
+  File "D:\Sqing\program_files\PyCharm Community Edition 2018.1.3\auto_teach\test_case\test_http.py", line 54, in test_http
+    self.assertEqual(r.json()['retcode'], test_data['exp'])
+AssertionError: 0 != 1
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>Total</td>
+    <td>15</td>
+    <td>12</td>
+    <td>3</td>
+    <td>0</td>
+    <td>Passing rate: 80.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+[32mINFO    [0m homoo:user_log.py:32 ==========开始测试==========
+[32mINFO    [0m homoo:user_log.py:32 /*开始->ID:2,标题:用户名为空登录*/
+[32mINFO    [0m homoo:user_log.py:32 /*结束->ID:2,标题:用户名为空登录*/
+[32mINFO    [0m homoo:user_log.py:32 ==========测试结束==========

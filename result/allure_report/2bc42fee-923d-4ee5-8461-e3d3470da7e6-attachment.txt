@@ -1,0 +1,2 @@
+[32mINFO    [0m homoo:user_log.py:32 /*开始->ID:4,标题:data的name为空创建*/
+[32mINFO    [0m homoo:user_log.py:32 /*结束->ID:4,标题:data的name为空创建*/

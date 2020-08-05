@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="PC-20181102DJCG" name="pytest" skipped="0" tests="10" time="8.963" timestamp="2020-08-05T23:05:02.273352"><testcase classname="test_case.test_login_pytest.TestHttp" file="test_case\test_login_pytest.py" line="17" name="test_http[test_data0]" time="0.603"><system-err>2020-08-05 23:05:06,385-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:1,标题:正常登录*/
+2020-08-05 23:05:06,618-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:1,标题:正常登录*/
+</system-err></testcase><testcase classname="test_case.test_login_pytest.TestHttp" file="test_case\test_login_pytest.py" line="17" name="test_http[test_data1]" time="0.527"><system-err>2020-08-05 23:05:07,003-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:2,标题:用户名为空登录*/
+2020-08-05 23:05:07,205-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:2,标题:用户名为空登录*/
+</system-err></testcase><testcase classname="test_case.test_login_pytest.TestHttp" file="test_case\test_login_pytest.py" line="17" name="test_http[test_data2]" time="0.531"><system-err>2020-08-05 23:05:07,551-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:3,标题:密码为空登录*/
+2020-08-05 23:05:07,740-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:3,标题:密码为空登录*/
+</system-err></testcase><testcase classname="test_case.test_login_pytest.TestHttp" file="test_case\test_login_pytest.py" line="17" name="test_http[test_data3]" time="0.580"><system-err>2020-08-05 23:05:08,105-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:4,标题:密码错误登录*/
+2020-08-05 23:05:08,337-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:4,标题:密码错误登录*/
+</system-err></testcase><testcase classname="test_case.test_login_pytest.TestHttp" file="test_case\test_login_pytest.py" line="17" name="test_http[test_data4]" time="0.519"><system-err>2020-08-05 23:05:08,704-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:5,标题:用户名不存在登录*/
+2020-08-05 23:05:08,922-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:5,标题:用户名不存在登录*/
+</system-err></testcase><testcase classname="test_case.test_add_course_pytest.TestHttp" file="test_case\test_add_course_pytest.py" line="17" name="test_http[test_data0]" time="0.516"><system-err>2020-08-05 23:05:09,240-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:1,标题:正常登录*/
+2020-08-05 23:05:09,452-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:1,标题:正常登录*/
+</system-err></testcase><testcase classname="test_case.test_add_course_pytest.TestHttp" file="test_case\test_add_course_pytest.py" line="17" name="test_http[test_data1]" time="0.337"><system-err>2020-08-05 23:05:09,780-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:2,标题:正常创建*/
+2020-08-05 23:05:09,798-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:2,标题:正常创建*/
+</system-err></testcase><testcase classname="test_case.test_add_course_pytest.TestHttp" file="test_case\test_add_course_pytest.py" line="17" name="test_http[test_data2]" time="0.363"><system-err>2020-08-05 23:05:10,135-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:3,标题:重复创建*/
+2020-08-05 23:05:10,148-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:3,标题:重复创建*/
+</system-err></testcase><testcase classname="test_case.test_add_course_pytest.TestHttp" file="test_case\test_add_course_pytest.py" line="17" name="test_http[test_data3]" time="0.305"><system-err>2020-08-05 23:05:10,515-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:4,标题:data的name为空创建*/
+2020-08-05 23:05:10,526-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:4,标题:data的name为空创建*/
+</system-err></testcase><testcase classname="test_case.test_add_course_pytest.TestHttp" file="test_case\test_add_course_pytest.py" line="17" name="test_http[test_data4]" time="0.380"><system-err>2020-08-05 23:05:10,837-INFO-user_log.py-homoo-日志信息:/*开始-&gt;ID:5,标题:action为空创建*/
+2020-08-05 23:05:10,853-INFO-user_log.py-homoo-日志信息:/*结束-&gt;ID:5,标题:action为空创建*/
+</system-err></testcase></testsuite></testsuites>
