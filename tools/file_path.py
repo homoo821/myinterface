@@ -16,7 +16,7 @@ test_report_path = os.path.join(pro_path, 'result', 'html_report', 'html_report.
 # 配置文件路径
 config_path = os.path.join(pro_path, 'config', 'test_case.config')
 # 日志文件路径
-logs_path = os.path.join(pro_path, 'result', 'logs', 'user.log')
+logs_path = os.path.join(pro_path, 'result', 'logs')
 # print(test_case_path)
 # print(test_data_path)d
 # print(logs_path)

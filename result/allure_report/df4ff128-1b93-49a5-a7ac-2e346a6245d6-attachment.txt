@@ -1,4 +1,0 @@
-INFO     homoo:user_log.py:32 ==========开始测试==========
-INFO     homoo:user_log.py:32 /*开始->ID:4,标题:密码错误登录*/
-INFO     homoo:user_log.py:32 /*结束->ID:4,标题:密码错误登录*/
-INFO     homoo:user_log.py:32 ==========测试结束==========

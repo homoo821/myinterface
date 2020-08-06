@@ -1,2 +1,0 @@
-{'retcode': 1, 'reason': '不支持的`action`类型'}
-'TestHttp' object has no attribute 'assertEqual'

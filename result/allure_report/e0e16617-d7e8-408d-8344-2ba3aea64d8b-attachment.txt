@@ -1,2 +1,0 @@
-{'retcode': 1, 'reason': '缺少参数`data`'}
-'TestHttp' object has no attribute 'assertEqual'

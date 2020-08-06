@@ -1,2 +1,0 @@
-INFO     homoo:user_log.py:32 /*开始->ID:2,标题:正常创建*/
-INFO     homoo:user_log.py:32 /*结束->ID:2,标题:正常创建*/

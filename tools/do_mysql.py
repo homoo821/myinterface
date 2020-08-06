@@ -6,18 +6,19 @@
 import pymysql
 
 mysql_config={
-    'host':'47.107.168.87',
-    'user':'python',
-    'password':'python666',
+    'host':'127.0.0.1',
+    'user':'root',
+    'password':'123456',
     'port':3306,
-    'database':'future'
+    'database':'plesson'
 }
 
 cnn=pymysql.connect(**mysql_config)
 
 cursor = cnn.cursor()
 
-query_sql="select * from member"
+query_sql="select * from sq_course"
+query_sql="select Colume from sq_course.colume"
 
 cursor.execute(query_sql)
 a=cursor.fetchall()

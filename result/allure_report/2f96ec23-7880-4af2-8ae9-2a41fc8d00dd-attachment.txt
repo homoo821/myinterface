@@ -1,2 +1,0 @@
-{'retcode': 0}
-'TestHttp' object has no attribute 'assertEqual'
